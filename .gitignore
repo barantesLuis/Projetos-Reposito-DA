@@ -1,0 +1,12 @@
+
+#Python
+__pycache__/
+*.pyc
+
+#Ambientes virtuais
+.venv/
+.env
+
+# Dados brutos (NÃO versionar)
+Projeto1_Cohort_Empresas_BR/dados_projeto_1/
+**/dados_projeto_1/
