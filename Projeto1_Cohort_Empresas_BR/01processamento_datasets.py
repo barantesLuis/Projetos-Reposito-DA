@@ -1,3 +1,7 @@
+import os
+import pandas as pd
+from tqdm import tqdm
+
 # =====================================================
 # CONFIGURAÇÕES DE DIRETÓRIO
 # =====================================================
@@ -134,5 +138,3 @@ if __name__ == "__main__":
         print(f"✅ {tipo} salvo em: {caminho}")
 
     print("\n🏁 PIPELINE FINALIZADO COM SUCESSO\n")
-    
-    
