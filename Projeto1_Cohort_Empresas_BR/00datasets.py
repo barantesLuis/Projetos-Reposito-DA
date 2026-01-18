@@ -7,14 +7,17 @@ from tqdm import tqdm
 # ==============================
 # CONFIGURAÇÕES
 # ==============================
-BASE_URL = "https://arquivos.receitafederal.gov.br/dados/cnpj/dados_abertos_cnpj/2024-12/"
+BASE_URL = (
+    "https://arquivos.receitafederal.gov.br/dados/cnpj/dados_abertos_cnpj/2025-12/"
+)
 
-BASE_DIR = r"C:\Git\Repositórios\Portfolio-DA\Projeto1_Cohort_Empresas_BR\dados_projeto_1"
+BASE_DIR = r"C:\Git\Projetos-Reposito-DA\Projeto1_Cohort_Empresas_BR\dados_projeto_1"
 ZIP_DIR = os.path.join(BASE_DIR, "zip")
 EXTRACT_DIR = os.path.join(BASE_DIR, "extracted")
 
 os.makedirs(ZIP_DIR, exist_ok=True)
 os.makedirs(EXTRACT_DIR, exist_ok=True)
+
 
 # ==============================
 # 1. LISTAR ARQUIVOS ZIP
@@ -29,6 +32,7 @@ def listar_arquivos_zip():
         for link in soup.find_all("a")
         if link.get("href", "").endswith(".zip")
     ]
+
 
 # ==============================
 # 2. BAIXAR ARQUIVOS
@@ -45,6 +49,7 @@ def baixar_arquivos(urls):
             for chunk in r.iter_content(chunk_size=8192):
                 f.write(chunk)
 
+
 # ==============================
 # 3. EXTRAIR ARQUIVOS
 # ==============================
@@ -54,6 +59,7 @@ def extrair_arquivos():
             caminho_zip = os.path.join(ZIP_DIR, arquivo)
             with zipfile.ZipFile(caminho_zip, "r") as zip_ref:
                 zip_ref.extractall(EXTRACT_DIR)
+
 
 # ==============================
 # EXECUÇÃO
